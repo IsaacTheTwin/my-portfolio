@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isaac Mothomoholo | Portfolio</title>
+
+    <!-- Tailwind CSS (compiled locally to style.css - see README for how to rebuild) -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/assets/logo.png" />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .hero-diagonal {
+        clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+      }
+      .nav-link.active {
+        background-color: #0f1830;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e2a4a;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-slate-800 antialiased">
+    <!-- ============ HEADER / NAV ============ -->
+    <header
+      class="w-full sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 gap-6 flex-wrap"
+      >
+        <!-- Logo -->
+        <a href="#top" class="flex items-center gap-3 shrink-0">
+          <img
+            id="logo-img"
+            src="assets/logo.png"
+            alt="Brand logo"
+            class="w-14 h-14 rounded-full object-cover"
+          />
+          <div class="leading-tight">
+            <p
+              id="brand-name"
+              class="font-extrabold tracking-wide text-navy-dark text-sm"
+            >
+              BIG HUMAN
+            </p>
+            <p
+              id="brand-sub"
+              class="font-semibold tracking-widest text-slate-500 text-xs"
+            >
+              ISAAC
+            </p>
+          </div>
+        </a>
+
+        <!-- Nav links (rendered by JS) -->
+        <nav
+          id="nav-links"
+          class="flex items-center gap-3 md:gap-6 flex-wrap justify-end"
+        >
+          <!-- injected -->
+        </nav>
+      </div>
+    </header>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section id="top" class="relative overflow-hidden bg-white">
+      <div
+        class="hero-diagonal absolute inset-0 bg-gradient-to-br from-slate-300 via-slate-100 to-white -z-10"
+      ></div>
+
+      <div
+        class="max-w-7xl mx-auto px-6 pt-14 pb-24 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <!-- Photo -->
+        <div class="flex justify-center md:justify-start">
+          <img
+            id="hero-photo"
+            src="assets/avatar-placeholder.png"
+            alt="Profile photo"
+            class="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover border-8 border-white shadow-2xl"
+          />
+        </div>
+
+        <!-- Text -->
+        <div>
+          <h1
+            id="hero-title"
+            class="text-2xl md:text-3xl font-bold text-navy-dark mb-6"
+          >
+            <!-- injected: Name – Title -->
+          </h1>
+
+          <div
+            id="hero-bio"
+            class="space-y-4 text-slate-700 text-base md:text-lg leading-relaxed mb-8"
+          >
+            <!-- injected paragraphs -->
+          </div>
+
+          <div
+            id="hero-contact"
+            class="flex items-center gap-3 text-navy-dark font-medium"
+          >
+            <!-- injected contact -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills strip -->
+      <div class="max-w-7xl mx-auto px-6 -mt-8 md:-mt-4 pb-4">
+        <div
+          id="skills-strip"
+          class="flex flex-wrap items-center justify-center gap-4 md:gap-5"
+        >
+          <!-- injected skill icons -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education" class="max-w-7xl mx-auto px-6 py-20 scroll-mt-24">
+      <h2 class="text-3xl font-extrabold text-navy-dark mb-2">Education</h2>
+      <div class="w-16 h-1 bg-navy rounded-full mb-10"></div>
+      <div id="education-list" class="grid md:grid-cols-2 gap-6">
+        <!-- injected -->
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section id="certifications" class="bg-slate-50 scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <h2 class="text-3xl font-extrabold text-navy-dark mb-2">
+          Professional Certifications &amp; Short Courses
+        </h2>
+        <div class="w-16 h-1 bg-navy rounded-full mb-10"></div>
+        <div
+          id="certifications-list"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- injected -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="max-w-7xl mx-auto px-6 py-20 scroll-mt-24">
+      <h2 class="text-3xl font-extrabold text-navy-dark mb-2">Experience</h2>
+      <div class="w-16 h-1 bg-navy rounded-full mb-10"></div>
+      <div id="experience-list" class="space-y-8">
+        <!-- injected -->
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="bg-slate-50 scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <h2 class="text-3xl font-extrabold text-navy-dark mb-2">Projects</h2>
+        <div class="w-16 h-1 bg-navy rounded-full mb-10"></div>
+        <div id="projects-list" class="grid md:grid-cols-3 gap-6">
+          <!-- injected -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="bg-navy-dark text-white scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-6 py-20">
+        <h2 id="about-heading" class="text-3xl font-extrabold mb-2">
+          About Me
+        </h2>
+        <div class="w-16 h-1 bg-white/60 rounded-full mb-10"></div>
+        <div
+          id="about-content"
+          class="space-y-4 text-slate-200 text-base md:text-lg leading-relaxed max-w-4xl"
+        >
+          <!-- injected -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-navy-dark border-t border-white/10">
+      <div
+        class="max-w-7xl mx-auto px-6 py-6 text-center text-slate-400 text-sm"
+      >
+        <p id="footer-text">© Isaac Mothomoholo</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

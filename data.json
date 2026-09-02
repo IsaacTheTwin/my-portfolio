@@ -1,0 +1,198 @@
+{
+  "site": {
+    "brandName": "BIG HUMAN",
+    "brandSub": "ISAAC",
+    "logo": "assets/logo.png",
+    "pageTitle": "Isaac Mothomoholo | Business Intelligence Analyst & Data Professional"
+  },
+  "nav": [
+    { "label": "Education", "target": "education" },
+    { "label": "Certifications", "target": "certifications" },
+    { "label": "Experience", "target": "experience" },
+    { "label": "Projects", "target": "projects" },
+    { "label": "About", "target": "about" }
+  ],
+  "hero": {
+    "photo": "assets/1784625362269.jpg",
+    "name": "Isaac Mothomoholo",
+    "title": "Business Intelligence Analyst & Data Professional",
+    "bio": [
+      "Professional dedicated to engineering clean, actionable data narratives. Leveraging a comprehensive tech stack from SQL and Python to Power BI and SAP.",
+      "I recently completed an analytics internship focused on streamlining month-end reporting and designing executive-facing dashboards.",
+      "I excel at bridging the gap between raw enterprise data and strategic business insights."
+    ],
+    "contact": {
+      "label": "Contact Me",
+      "phone": "+27 83 490 6143",
+      "email": "IsaacMothomoholo@gmail.com",
+      "link": "LinkedIn"
+    }
+  },
+  "skills": [
+    {
+      "name": "Power BI",
+      "type": "image",
+      "src": "assets/power BI.png"
+    },
+    {
+      "name": "Microsoft Fabric",
+      "type": "image",
+      "src": "assets/fabric.jpg"
+    },
+    {
+      "name": "Tableau",
+      "type": "image",
+      "src": "assets/Tableau-Logo.png"
+    },
+    {
+      "name": "SQL Server",
+      "type": "image",
+      "src": "assets/SSMS.png"
+    },
+    { "name": "R", "type": "simple-icon", "slug": "r", "color": "276DC3" },
+    {
+      "name": "Python",
+      "type": "simple-icon",
+      "slug": "python",
+      "color": "3776AB"
+    },
+    { "name": "git", "type": "simple-icon", "slug": "git", "color": "F05032" },
+    { "name": "SAP", "type": "simple-icon", "slug": "sap", "color": "0FAAFF" },
+    {
+      "name": "Jupyter",
+      "type": "simple-icon",
+      "slug": "jupyter",
+      "color": "F37626"
+    }
+  ],
+  "education": [
+    {
+      "qualification": "Bachelor of Science in Computer Science",
+      "institution": "Univeristy of The People | CA | USA",
+      "period": "2020 – 2023",
+      "details": "Detail-oriented and adaptable BSc Computer Science graduate from University of the People with a strong foundation in software development, data structures, and database management. Proficient in Python, Java, and SQL with hands-on academic project experience in debugging, web programming, and building algorithmic solutions."
+    },
+    {
+      "qualification": "Undergraduate Certificate in Data & Application Security",
+      "institution": "Univeristy of The People | CA | USA",
+      "period": "SEP 2023",
+      "details": "A professional UoPeople Certificate in Network and Application Security. Possesses core expertise in secure network design, vulnerability assessments, and systems risk mitigation. Proficient in implementing industry-standard security models to protect data integrity, manage privacy constraints, and maintain business continuity."
+    },
+    {
+      "qualification": "Undergraduate Certificate in Data Science",
+      "institution": "Univeristy of The People | CA | USA",
+      "period": "SEP 2023",
+      "details": "Analytical software practitioner holding an Undergraduate Certificate in Data Science from the University of the People. Combines basic computer science principles with explicit training in statistical computing, machine learning automation, and data structures. Adept at building clean pipelines to scrape, clean, and model large datasets to solve complex business problems."
+    },
+    {
+      "qualification": "Bachelor of Science Honours in Computing",
+      "institution": "University of South Africa | GP | Pretoria",
+      "period": "SEP 2023",
+      "details": "The purpose of this qualification is to provide learners with an advanced theoretical and practical knowledge about the nature of computing. It prepares the learners for research-based Postgraduate study. This qualification serves to deepen the learner's expertise in the computing discipline and to develop research capacity in the methodology and techniques of computing."
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Google Business Intelligence Certificate",
+      "issuer": "Google (via Coursera)",
+      "date": "February 2026",
+      "link": "https://www.credly.com/badges/c0dffead-354d-4c40-ae36-a72a9b8b50bc/public_url",
+      "credlyBadgeId": "c0dffead-354d-4c40-ae36-a72a9b8b50bc"
+    },
+    {
+      "name": "SAP Technology Consultant Certificate",
+      "issuer": "SAP (via Coursera)",
+      "date": "February 2025",
+      "link": "https://www.credly.com/badges/fbcbadd3-1db9-49ca-9b48-935300f46707/public_url",
+      "credlyBadgeId": "fbcbadd3-1db9-49ca-9b48-935300f46707"
+    },
+    {
+      "name": "Databases and SQL for Data Science",
+      "issuer": "IBM (via Coursera)",
+      "date": "October 2024",
+      "link": "https://www.credly.com/badges/1c116183-5f73-4346-9f27-52d22873fb16/public_url",
+      "credlyBadgeId": "1c116183-5f73-4346-9f27-52d22873fb16"
+    },
+    {
+      "name": "Exploring SAP Analytics Cloud – Record of Achievement",
+      "issuer": "SAP Learning",
+      "date": "January 2024",
+      "link": "https://www.credly.com/badges/d073dc9a-4b3b-4d67-a5e8-77e65630f857/public_url",
+      "credlyBadgeId": "d073dc9a-4b3b-4d67-a5e8-77e65630f857"
+    },
+    {
+      "name": "Google Project Management Certificate",
+      "issuer": "Google (via Coursera)",
+      "date": "March 2023",
+      "link": "https://www.coursera.org/professional-certificates/google-project-management/",
+      "credlyBadgeId": "606742fc-e8a9-45c1-b843-271b2bbacecb"
+    },
+    {
+      "name": "Artificial Intelligence Fundamentals with Capstone Project",
+      "issuer": "IBM SkillsBuild",
+      "date": "May 2025",
+      "link": "https://www.credly.com/badges/137acc0a-76b0-4c91-991b-90d288b6b8df/public_url",
+      "credlyBadgeId": "137acc0a-76b0-4c91-991b-90d288b6b8df"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Business Applications & Analytics Intern",
+      "company": "Palabora Copper (Pty) Limited",
+      "period": "JUN 2024 – SEP 2026",
+      "responsibilities": [
+        "Streamlined month-end reporting processes, reducing turnaround time.",
+        "Designed executive-facing Power BI dashboards for cross-functional stakeholders.",
+        "Automated Excel-to-SQL Server data flows to eliminate manual data entry.",
+        "Supported integration and troubleshooting across SAP Ariba, Teams, and internal EHS systems.",
+        "Written DAX code to streamline analytics"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Action Tracker Database",
+      "description": "Designed a normalized SQL Server database with one-to-many relationships for tracking deviations, recommendations, and actions across business units.",
+      "tags": ["SQL Server", "Stored Procedures", "SSIS"]
+    },
+    {
+      "name": "Executive Cellphone Administration Dashboard",
+      "description": "Built an executive Power BI/PowerPoint reporting package covering cellphone clearance, invoicing, and deductions, branded to company standards.",
+      "tags": ["Power BI", "Excel", "PowerPoint"]
+    },
+    {
+      "name": "Excel Automation Project",
+      "description": "Duplicate detection, and data merging to reduce manual reporting effort, Developed Power BI Dashboards.",
+      "tags": ["Excel", "VBA", "Automation"]
+    },
+    {
+      "name": "Data Analytics and Process Optimization Project",
+      "description": "Extract data from different sources, Clean the data, Load data into a Lakehouse, create dashboard.",
+      "tags": ["SSIS", "PowerShell", "Power BI", "VBA", "Power Automate"]
+    },
+    {
+      "name": "Logistics Automation Project",
+      "description": "Collaborated with internal and external stakeholder to automate logistics process",
+      "tags": [
+        "SSIS",
+        "PowerShell",
+        "Power BI",
+        "React",
+        "SQL Server",
+        "PockeBase",
+        "Microsoft Intune"
+      ]
+    }
+  ],
+  "about": {
+    "heading": "About Me",
+    "paragraphs": [
+      "I am an IT and Business Intelligence professional based in South Africa, I worked in the mining industry at Palabora Mining Company.",
+      "My work spans data engineering, dashboard design, database architecture, and process automation — always with the goal of turning raw enterprise data into clear, strategic insight.",
+      "Outside of my day-to-day role, I continue to build technical depth through certifications and hands-on projects across cloud, data, and automation technologies."
+    ]
+  },
+  "footer": {
+    "text": "© 2026 Isaac Mothomoholo. All rights reserved."
+  }
+}
