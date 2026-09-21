@@ -27,6 +27,12 @@
       .nav-link.active {
         background-color: #0f1830;
       }
+      .video-aspect-landscape {
+        aspect-ratio: 8 / 4.5;
+      }
+      .video-aspect-portrait {
+        aspect-ratio: 8 / 4.5;
+      }
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -132,6 +138,37 @@
           <!-- injected skill icons -->
         </div>
       </div>
+    </section>
+
+    <!-- ============ VIDEO INTRO ============ -->
+    <section id="video-intro" class="max-w-5xl mx-auto px-6 py-20 scroll-mt-24">
+      <h2
+        id="video-heading"
+        class="text-3xl font-extrabold text-navy-dark mb-2"
+      >
+        Introductory Video
+      </h2>
+      <div class="w-16 h-1 bg-navy rounded-full mb-6"></div>
+      <p id="video-description" class="text-slate-600 mb-8 max-w-2xl">
+        <!-- injected -->
+      </p>
+      <div
+        id="video-embed-wrapper"
+        class="w-full rounded-xl overflow-hidden shadow-lg border border-slate-200 bg-slate-100 mx-auto"
+      >
+        <!-- injected iframe -->
+      </div>
+      <p class="text-xs text-slate-400 mt-3">
+        Can't see the video?
+        <a
+          id="video-fallback-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-navy"
+          >Watch it directly on YouTube</a
+        >.
+      </p>
     </section>
 
     <!-- ============ EDUCATION ============ -->

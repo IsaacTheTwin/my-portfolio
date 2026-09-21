@@ -65,6 +65,14 @@
       "color": "F37626"
     }
   ],
+  "videoIntro": {
+    "heading": "Introductory Video",
+    "description": "A short video introduction — a quick way to get to know me beyond the resume.",
+    "provider": "youtube",
+    "youtubeVideoId": "qduuZs6MMBQ",
+    "shareLink": "https://youtube.com/shorts/qduuZs6MMBQ",
+    "isShort": true
+  },
   "education": [
     {
       "qualification": "Bachelor of Science in Computer Science",
@@ -87,7 +95,7 @@
     {
       "qualification": "Bachelor of Science Honours in Computing",
       "institution": "University of South Africa | GP | Pretoria",
-      "period": "SEP 2023",
+      "period": "In Progress",
       "details": "The purpose of this qualification is to provide learners with an advanced theoretical and practical knowledge about the nature of computing. It prepares the learners for research-based Postgraduate study. This qualification serves to deepen the learner's expertise in the computing discipline and to develop research capacity in the methodology and techniques of computing."
     }
   ],
