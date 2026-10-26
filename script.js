@@ -135,10 +135,18 @@ function renderSkills(skills) {
 function renderVideoIntro(video) {
   if (!video) return;
 
-  document.getElementById("video-heading").textContent =
-    video.heading || "Introductory Video";
-  document.getElementById("video-description").textContent =
-    video.description || "";
+  // 1. Grab the DOM elements
+  const headingEl = document.getElementById("video-heading");
+  const descEl = document.getElementById("video-description");
+  const wrapper = document.getElementById("video-embed-wrapper");
+  const fallback = document.getElementById("video-fallback-link");
+
+  // 2. If the HTML is commented out or missing, stop here so the app doesn't crash
+  if (!headingEl || !descEl || !wrapper) return;
+
+  // 3. Elements exist, safe to update them
+  headingEl.textContent = video.heading || "Introductory Video";
+  descEl.textContent = video.description || "";
 
   let embedUrl = video.embedUrl;
   if (video.provider === "youtube" && video.youtubeVideoId) {
@@ -147,8 +155,6 @@ function renderVideoIntro(video) {
     embedUrl = `https://drive.google.com/file/d/${encodeURIComponent(video.driveFileId)}/preview`;
   }
 
-  const wrapper = document.getElementById("video-embed-wrapper");
-
   // Reset aspect-ratio classes, then apply the right one for this video
   wrapper.classList.remove(
     "video-aspect-landscape",
@@ -156,6 +162,7 @@ function renderVideoIntro(video) {
     "max-w-md",
     "max-w-3xl",
   );
+  
   if (video.isShort) {
     // Vertical Shorts video: tall, centered, capped width so it isn't stretched full-page-wide
     wrapper.classList.add("video-aspect-portrait", "max-w-md");
@@ -174,7 +181,6 @@ function renderVideoIntro(video) {
     </iframe>
   `;
 
-  const fallback = document.getElementById("video-fallback-link");
   if (fallback) fallback.href = video.shareLink || embedUrl;
 }
 
