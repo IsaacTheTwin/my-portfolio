@@ -14,21 +14,104 @@ const CONTACT_ICON = `
           fill="white"/>
   </svg>`;
 
-// Small external-link icon used on certification cards
+// Small external-link icon used on certification cards & links
 const LINK_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-       class="w-4 h-4 inline-block ml-1 -mt-0.5">
+       class="w-4 h-4 inline-block ml-1 -mt-0.5 shrink-0">
     <path d="M14 5h5v5M19 5l-8 8M9 5H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
 
-// Small badge/ribbon icon used as placeholder for missing Credly badges
-const BADGE_PLACEHOLDER_ICON = `
+// Certificate ribbon icon used for non-Credly platforms & fallbacks
+const CERTIFICATE_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-       class="w-6 h-6 text-slate-400">
+       class="w-7 h-7 text-navy">
     <path d="M12 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10ZM8.21 13.89 7 22l5-3 5 3-1.21-8.11"
-          stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
+
+// Platform icons for project links (Jupyter, GitHub, Power BI, RPubs, Download, Preview)
+const PROJECT_ICONS = {
+  github: `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+    </svg>`,
+  jupyter: `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-4 h-4 shrink-0">
+      <path d="M4.5 7.5C6.8 5 10.2 3.8 14 4.3c2.5.3 4.6 1.4 6 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M19.5 16.5C17.2 19 13.8 20.2 10 19.7c-2.5-.3-4.6-1.4-6-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="18.5" cy="4.5" r="1.5" fill="currentColor"/>
+      <circle cx="5.5" cy="19.5" r="1.5" fill="currentColor"/>
+      <circle cx="12" cy="12" r="2" fill="currentColor"/>
+    </svg>`,
+  powerbi: `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0">
+      <rect x="4" y="13" width="3.5" height="7" rx="1"/>
+      <rect x="10.25" y="9" width="3.5" height="11" rx="1"/>
+      <rect x="16.5" y="4" width="3.5" height="16" rx="1"/>
+    </svg>`,
+  rpubs: `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-4 h-4 shrink-0">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+      <path d="M9.5 16V8h3.2a2.3 2.3 0 0 1 0 4.6H9.5m3.3 0L15.2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  download: `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-4 h-4 shrink-0">
+      <path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  preview: `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="w-4 h-4 shrink-0">
+      <path d="M14 5h5v5M19 5l-8 8M9 5H6a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  default: LINK_ICON,
+};
+
+const PLATFORM_META = {
+  jupyter: {
+    label: "Jupyter Notebook",
+    btnClass:
+      "bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100",
+  },
+  github: {
+    label: "GitHub",
+    btnClass:
+      "bg-slate-800 text-white border-slate-800 hover:bg-slate-700",
+  },
+  powerbi: {
+    label: "Power BI",
+    btnClass:
+      "bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100",
+  },
+  rpubs: {
+    label: "RPubs",
+    btnClass:
+      "bg-sky-50 text-sky-700 border-sky-200 hover:bg-sky-100",
+  },
+  default: {
+    label: "Project Link",
+    btnClass: "bg-navy text-white border-navy hover:bg-navy-dark",
+  },
+};
+
+// Known certification providers for automatic icon & badge detection
+const CERT_PROVIDERS = [
+  { match: /coursera/i, label: "Coursera", slug: "coursera", color: "0056D2" },
+  { match: /microsoft|azure/i, label: "Microsoft", slug: "microsoft", color: "5E5E5E" },
+  { match: /google/i, label: "Google", slug: "google", color: "4285F4" },
+  { match: /\bibm\b/i, label: "IBM", slug: "ibm", color: "052FAD" },
+  { match: /\bsap\b/i, label: "SAP", slug: "sap", color: "0FAAFF" },
+  { match: /udemy/i, label: "Udemy", slug: "udemy", color: "A435F0" },
+  { match: /linkedin/i, label: "LinkedIn Learning", slug: "linkedin", color: "0A66C2" },
+  { match: /\baws\b|amazon/i, label: "AWS", slug: "amazonaws", color: "232F3E" },
+  { match: /edx/i, label: "edX", slug: "edx", color: "02262B" },
+  { match: /datacamp/i, label: "DataCamp", slug: "datacamp", color: "03EF62" },
+  { match: /kaggle/i, label: "Kaggle", slug: "kaggle", color: "20BEFF" },
+  { match: /hackerrank/i, label: "HackerRank", slug: "hackerrank", color: "00EA64" },
+  { match: /cisco/i, label: "Cisco", slug: "cisco", color: "1BA0D7" },
+  { match: /comptia/i, label: "CompTIA", slug: "comptia", color: "C8202F" },
+  { match: /freecodecamp/i, label: "freeCodeCamp", slug: "freecodecamp", color: "0A0A23" },
+];
 
 async function loadData() {
   try {
@@ -95,22 +178,24 @@ function renderHero(hero) {
     </p>`;
 }
 
-// Renders each skill as an actual brand logo:
-//  - type "simple-icon": pulls the real, colored SVG logo from the Simple Icons
-//    CDN (https://cdn.simpleicons.org/<slug>/<color>) — requires internet access
-//    in the visitor's browser (works on any normal web host).
-//  - type "image": uses a local file from /assets (e.g. for brands not available
-//    on Simple Icons, such as Microsoft Fabric).
+// Renders skills as a seamless infinite horizontal marquee
 function renderSkills(skills) {
-  document.getElementById("skills-strip").innerHTML = skills
+  const track = document.getElementById("skills-strip");
+  if (!track || !Array.isArray(skills) || skills.length === 0) return;
+
+  // Adjust speed proportionally so adding more skills keeps a steady pace
+  const durationSeconds = Math.max(22, skills.length * 3.2);
+  track.style.setProperty("--marquee-duration", `${durationSeconds}s`);
+
+  const itemsHtml = skills
     .map((s) => {
       const iconSrc =
         s.type === "simple-icon"
           ? `https://cdn.simpleicons.org/${encodeURIComponent(s.slug)}/${encodeURIComponent(s.color || "")}`
           : s.src;
       return `
-      <div class="flex flex-col items-center gap-2" title="${escapeAttr(s.name)}">
-        <div class="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white shadow-md flex items-center justify-center p-3">
+      <div class="w-20 md:w-24 shrink-0 flex flex-col items-center gap-2" title="${escapeAttr(s.name)}">
+        <div class="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white shadow-md border border-slate-100 flex items-center justify-center p-3">
           <img src="${escapeAttr(iconSrc)}" alt="${escapeAttr(s.name)} logo" class="max-w-full max-h-full object-contain" loading="lazy" />
         </div>
         <span class="text-[11px] md:text-xs font-semibold text-slate-600 text-center leading-tight">${escapeHtml(s.name)}</span>
@@ -118,33 +203,24 @@ function renderSkills(skills) {
     `;
     })
     .join("");
+
+  // Two identical groups allow a pixel-perfect -50% infinite loop
+  track.innerHTML = `
+    <div class="skills-marquee-group">${itemsHtml}</div>
+    <div class="skills-marquee-group" aria-hidden="true">${itemsHtml}</div>
+  `;
 }
 
-// Renders the introductory video section.
-//
-// Supports two providers:
-//   - "youtube": embeds a standard YouTube video OR a YouTube Short via the
-//     official https://www.youtube.com/embed/<VIDEO_ID> iframe format (this
-//     works identically for Shorts — YouTube just serves it in its normal
-//     player). Because Shorts are filmed vertically (9:16) rather than the
-//     usual 16:9, the wrapper switches to a tall, centered portrait frame
-//     when `isShort` is true, instead of stretching a vertical video into a
-//     wide box.
-//   - "google-drive": kept for backwards compatibility, embeds a Drive file
-//     via its /preview iframe URL (requires "Anyone with the link" sharing).
 function renderVideoIntro(video) {
   if (!video) return;
 
-  // 1. Grab the DOM elements
   const headingEl = document.getElementById("video-heading");
   const descEl = document.getElementById("video-description");
   const wrapper = document.getElementById("video-embed-wrapper");
   const fallback = document.getElementById("video-fallback-link");
 
-  // 2. If the HTML is commented out or missing, stop here so the app doesn't crash
   if (!headingEl || !descEl || !wrapper) return;
 
-  // 3. Elements exist, safe to update them
   headingEl.textContent = video.heading || "Introductory Video";
   descEl.textContent = video.description || "";
 
@@ -155,16 +231,14 @@ function renderVideoIntro(video) {
     embedUrl = `https://drive.google.com/file/d/${encodeURIComponent(video.driveFileId)}/preview`;
   }
 
-  // Reset aspect-ratio classes, then apply the right one for this video
   wrapper.classList.remove(
     "video-aspect-landscape",
     "video-aspect-portrait",
     "max-w-md",
     "max-w-3xl",
   );
-  
+
   if (video.isShort) {
-    // Vertical Shorts video: tall, centered, capped width so it isn't stretched full-page-wide
     wrapper.classList.add("video-aspect-portrait", "max-w-md");
   } else {
     wrapper.classList.add("video-aspect-landscape", "max-w-3xl");
@@ -205,48 +279,95 @@ function renderEducation(list) {
     .join("");
 }
 
-// Renders each certification card with:
-//  1. Name / issuer / date
-//  2. A "View reference" link (official course/certification page)
-//  3. A Credly badge slot:
-//     - If `credlyBadgeId` is filled in data.json, embeds the OFFICIAL Credly
-//       badge widget (the same embed Credly gives you from your badge's
-//       "Share" > "Embed" option), which shows the live badge image.
-//     - If left empty, shows a placeholder so it's obvious where to add it.
+function resolveCertProvider(cert) {
+  const haystack = `${cert.platform || ""} ${cert.issuer || ""} ${cert.link || ""}`;
+  const detected = CERT_PROVIDERS.find((p) => p.match.test(haystack));
+
+  return {
+    label: cert.platform || detected?.label || "Verified Certificate",
+    slug: cert.issuerIcon || detected?.slug || null,
+    color: cert.issuerColor || detected?.color || "1E2A4A",
+  };
+}
+
+function renderCertificationVisual(c) {
+  // 1. Official Credly embed widget
+  if (c.credlyBadgeId) {
+    return `<div data-iframe-width="120" data-iframe-height="150" data-share-badge-id="${escapeAttr(c.credlyBadgeId)}" data-share-badge-host="https://www.credly.com"></div>`;
+  }
+
+  // 2. Custom badge or certificate emblem image (local asset or URL)
+  if (c.badgeImage) {
+    return `
+      <div class="flex flex-col items-center gap-2">
+        <img src="${escapeAttr(sanitizeUrl(c.badgeImage))}"
+             alt="${escapeAttr(c.name)} badge"
+             class="h-24 w-auto max-w-[160px] object-contain rounded-lg"
+             loading="lazy" />
+        ${
+          c.credentialId
+            ? `<span class="text-[11px] font-medium text-slate-400">ID: ${escapeHtml(c.credentialId)}</span>`
+            : ""
+        }
+      </div>`;
+  }
+
+  // 3. Platform-branded verification badge (Coursera, Microsoft, Google, Udemy, etc.)
+  const provider = resolveCertProvider(c);
+  const iconHtml = provider.slug
+    ? `<img src="https://cdn.simpleicons.org/${encodeURIComponent(provider.slug)}/${encodeURIComponent(provider.color)}"
+            alt="${escapeAttr(provider.label)} logo"
+            class="w-7 h-7 object-contain"
+            loading="lazy" />`
+    : CERTIFICATE_ICON;
+
+  return `
+    <div class="w-full max-w-[220px] flex flex-col items-center gap-2 border border-slate-200 bg-slate-50 rounded-xl px-4 py-3.5 text-center">
+      <div class="w-12 h-12 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center">
+        ${iconHtml}
+      </div>
+      <span class="text-xs font-semibold text-navy-dark leading-tight">${escapeHtml(provider.label)}</span>
+      ${
+        c.credentialId
+          ? `<span class="text-[11px] text-slate-500 leading-tight">ID: ${escapeHtml(c.credentialId)}</span>`
+          : `<span class="text-[11px] text-slate-400 leading-tight">Verified Credential</span>`
+      }
+    </div>`;
+}
+
 function renderCertifications(list) {
   document.getElementById("certifications-list").innerHTML = list
-    .map(
-      (c) => `
-    <div class="border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow bg-white flex flex-col">
-      <h3 class="font-bold text-lg text-navy-dark mb-1">${escapeHtml(c.name)}</h3>
-      <p class="text-sm text-slate-500 font-medium mb-4">
-        ${[c.issuer, c.date].filter(Boolean).map(escapeHtml).join(" · ")}
-      </p>
+    .map((c) => {
+      const linkText =
+        c.linkLabel ||
+        (c.credlyBadgeId || c.credentialId
+          ? "Verify credential"
+          : "View certificate");
 
-      <div class="flex items-center justify-center mb-4 min-h-[110px]">
+      return `
+      <div class="border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow bg-white flex flex-col">
+        <h3 class="font-bold text-lg text-navy-dark mb-1">${escapeHtml(c.name)}</h3>
+        <p class="text-sm text-slate-500 font-medium mb-4">
+          ${[c.issuer, c.date].filter(Boolean).map(escapeHtml).join(" · ")}
+        </p>
+
+        <div class="flex items-center justify-center mb-4 min-h-[110px] flex-1">
+          ${renderCertificationVisual(c)}
+        </div>
+
         ${
-          c.credlyBadgeId
-            ? `<div data-iframe-width="120" data-iframe-height="150" data-share-badge-id="${escapeAttr(c.credlyBadgeId)}" data-share-badge-host="https://www.credly.com"></div>`
-            : `<div class="flex flex-col items-center gap-1 text-slate-400 border-2 border-dashed border-slate-200 rounded-lg px-4 py-3">
-               ${BADGE_PLACEHOLDER_ICON}
-               <span class="text-[11px] text-center leading-tight">Credly badge<br/>not yet added</span>
-             </div>`
+          c.link
+            ? `<a href="${escapeAttr(sanitizeUrl(c.link))}" target="_blank" rel="noopener noreferrer"
+                  class="mt-auto inline-flex items-center justify-center text-navy font-semibold text-sm hover:text-navy-dark hover:underline">
+                 ${escapeHtml(linkText)} ${LINK_ICON}
+               </a>`
+            : ""
         }
       </div>
-
-      <a href="${escapeAttr(c.link)}" target="_blank" rel="noopener noreferrer"
-         class="mt-auto inline-flex items-center justify-center text-navy font-semibold text-sm hover:text-navy-dark hover:underline">
-        View reference ${LINK_ICON}
-      </a>
-    </div>
-  `,
-    )
+    `;
+    })
     .join("");
 
-  // (Re)load the official Credly embed script so it scans the DOM and turns
-  // every data-share-badge-id div above into a live badge. Credly's script
-  // only auto-initializes badges present at the time it loads, so we insert
-  // a fresh <script> tag each time this function runs.
   const existing = document.getElementById("credly-embed-script");
   if (existing) existing.remove();
   if (list.some((c) => c.credlyBadgeId)) {
@@ -277,20 +398,178 @@ function renderExperience(list) {
     .join("");
 }
 
-function renderProjects(list) {
-  document.getElementById("projects-list").innerHTML = list
-    .map(
-      (p) => `
-    <div class="border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow bg-white flex flex-col">
-      <h3 class="font-bold text-lg text-navy-dark mb-2">${escapeHtml(p.name)}</h3>
-      <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-1">${escapeHtml(p.description)}</p>
-      <div class="flex flex-wrap gap-2">
-        ${p.tags.map((t) => `<span class="text-xs font-semibold px-2 py-1 rounded bg-navy/10 text-navy-dark">${escapeHtml(t)}</span>`).join("")}
-      </div>
-    </div>
-  `,
-    )
+function getProjectCategory(project) {
+  if (project.category) return project.category;
+  const firstLinkType = project.links?.[0]?.type?.toLowerCase();
+  if (firstLinkType && PLATFORM_META[firstLinkType]) {
+    return PLATFORM_META[firstLinkType].label;
+  }
+  return null;
+}
+
+function isDownloadableFile(link) {
+  if (typeof link.download === "boolean") return link.download;
+  return /\.(pbix|pbit|ipynb|rmd|r|py|sql|xlsx|csv|pdf|zip)$/i.test(
+    link.url || "",
+  );
+}
+
+// Resolves a URL to open in a new tab when the user clicks "Preview"
+function getPreviewUrl(link) {
+  const customPreview = link.previewUrl || link.embedUrl;
+  if (customPreview) return sanitizeUrl(customPreview);
+
+  const type = (link.type || "").toLowerCase();
+  const url = String(link.url || "").trim();
+
+  if (type === "rpubs" && /^https?:\/\/(www\.)?rpubs\.com\//i.test(url)) {
+    return sanitizeUrl(url);
+  }
+
+  if (
+    type === "jupyter" &&
+    /^https?:\/\/github\.com\/[^/]+\/[^/]+\/blob\/.+\.ipynb$/i.test(url)
+  ) {
+    return sanitizeUrl(
+      url.replace(/^https?:\/\/github\.com\//i, "https://nbviewer.org/github/"),
+    );
+  }
+
+  if (type === "powerbi" && /^https?:\/\/app\.powerbi\.com\//i.test(url)) {
+    return sanitizeUrl(url);
+  }
+
+  return null;
+}
+
+function renderProjectLinks(project) {
+  const links = Array.isArray(project.links)
+    ? project.links.filter((l) => l && l.url)
+    : [];
+  if (links.length === 0) return "";
+
+  const baseBtnLayout =
+    "flex-1 min-w-[calc(50%-0.25rem)] h-9 inline-flex items-center justify-center gap-2 px-3.5 rounded-lg border text-xs font-semibold whitespace-nowrap transition-colors";
+
+  const buttonsHtml = links
+    .map((link) => {
+      const type = (link.type || "default").toLowerCase();
+      const meta = PLATFORM_META[type] || PLATFORM_META.default;
+      const icon = PROJECT_ICONS[type] || PROJECT_ICONS.default;
+      const safeUrl = sanitizeUrl(link.url);
+      const isDownload = isDownloadableFile(link);
+      const label = link.label || meta.label;
+      const previewUrl = getPreviewUrl(link);
+
+      const mainLinkHtml = `
+        <a href="${escapeAttr(safeUrl)}"
+           ${isDownload ? "download" : 'target="_blank" rel="noopener noreferrer"'}
+           class="${baseBtnLayout} ${meta.btnClass}">
+          ${icon}
+          <span>${escapeHtml(label)}</span>
+          ${isDownload ? PROJECT_ICONS.download : ""}
+        </a>`;
+
+      const previewLinkHtml = previewUrl
+        ? `
+        <a href="${escapeAttr(previewUrl)}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="${baseBtnLayout} border-navy/30 bg-white text-navy-dark hover:bg-navy hover:text-white hover:border-navy">
+          ${PROJECT_ICONS.preview}
+          <span>Preview</span>
+        </a>`
+        : "";
+
+      return mainLinkHtml + previewLinkHtml;
+    })
     .join("");
+
+  return `
+    <div class="border-t border-slate-100 pt-3.5 mt-4 flex flex-wrap items-center gap-2">
+      ${buttonsHtml}
+    </div>
+  `;
+}
+
+function renderProjects(list) {
+  const filtersContainer = document.getElementById("projects-filters");
+  const listContainer = document.getElementById("projects-list");
+
+  const categories = Array.from(
+    new Set(list.map(getProjectCategory).filter(Boolean)),
+  );
+
+  let activeFilter = "All";
+
+  function drawCards() {
+    const filtered =
+      activeFilter === "All"
+        ? list
+        : list.filter((p) => getProjectCategory(p) === activeFilter);
+
+    listContainer.innerHTML = filtered
+      .map((p) => {
+        const category = getProjectCategory(p);
+        return `
+        <div class="border border-slate-200 rounded-xl p-6 hover:shadow-lg transition-shadow bg-white flex flex-col">
+          ${
+            category
+              ? `<div class="mb-2">
+                   <span class="inline-block text-[11px] font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
+                     ${escapeHtml(category)}
+                   </span>
+                 </div>`
+              : ""
+          }
+          <h3 class="font-bold text-lg text-navy-dark mb-2">${escapeHtml(p.name)}</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-1">${escapeHtml(p.description)}</p>
+          <div class="mt-auto">
+            <div class="flex flex-wrap gap-2">
+              ${(p.tags || []).map((t) => `<span class="text-xs font-semibold px-2 py-1 rounded bg-navy/10 text-navy-dark">${escapeHtml(t)}</span>`).join("")}
+            </div>
+            ${renderProjectLinks(p)}
+          </div>
+        </div>
+      `;
+      })
+      .join("");
+  }
+
+  function drawFilters() {
+    if (!filtersContainer) return;
+    if (categories.length <= 1) {
+      filtersContainer.innerHTML = "";
+      return;
+    }
+
+    const tabs = ["All", ...categories];
+    filtersContainer.innerHTML = tabs
+      .map((tab) => {
+        const isActive = tab === activeFilter;
+        const btnStyle = isActive
+          ? "bg-navy text-white border-navy"
+          : "bg-white text-slate-700 border-slate-200 hover:border-navy hover:text-navy";
+        return `
+          <button type="button"
+                  data-filter="${escapeAttr(tab)}"
+                  class="project-filter-btn px-4 py-1.5 rounded-full border text-xs font-semibold cursor-pointer transition-colors ${btnStyle}">
+            ${escapeHtml(tab)}
+          </button>`;
+      })
+      .join("");
+
+    filtersContainer.querySelectorAll(".project-filter-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeFilter = btn.getAttribute("data-filter");
+        drawFilters();
+        drawCards();
+      });
+    });
+  }
+
+  drawFilters();
+  drawCards();
 }
 
 function renderAbout(about) {
@@ -305,7 +584,6 @@ function renderFooter(footer) {
   document.getElementById("footer-text").textContent = footer.text || "";
 }
 
-// Highlight the nav link matching the section currently in view
 function setupScrollSpy(nav) {
   const sections = nav
     .map((n) => document.getElementById(n.target))
@@ -330,6 +608,13 @@ function setupScrollSpy(nav) {
   );
 
   sections.forEach((s) => observer.observe(s));
+}
+
+function sanitizeUrl(url) {
+  const str = String(url || "").trim();
+  if (/^(https?:\/\/|mailto:|\/|\.\/)/i.test(str)) return str;
+  if (/^[a-zA-Z0-9_\-./]+$/.test(str)) return str;
+  return "#";
 }
 
 function escapeHtml(str) {

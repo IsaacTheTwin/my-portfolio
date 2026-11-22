@@ -33,6 +33,71 @@
       .video-aspect-portrait {
         aspect-ratio: 8 / 4.5;
       }
+
+      /* Smooth infinite skills marquee */
+      .skills-marquee-wrapper {
+        overflow: hidden;
+        padding-block: 0.75rem;
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          #000 6%,
+          #000 94%,
+          transparent 100%
+        );
+        mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          #000 6%,
+          #000 94%,
+          transparent 100%
+        );
+      }
+      .skills-marquee-track {
+        display: flex;
+        width: max-content;
+        animation: skills-scroll var(--marquee-duration, 30s) linear infinite;
+      }
+      .skills-marquee-wrapper:hover .skills-marquee-track,
+      .skills-marquee-wrapper:focus-within .skills-marquee-track {
+        animation-play-state: paused;
+      }
+      .skills-marquee-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding-right: 1.25rem;
+        flex-shrink: 0;
+      }
+      @keyframes skills-scroll {
+        0% {
+          transform: translate3d(0, 0, 0);
+        }
+        100% {
+          transform: translate3d(-50%, 0, 0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .skills-marquee-wrapper {
+          -webkit-mask-image: none;
+          mask-image: none;
+        }
+        .skills-marquee-track {
+          animation: none;
+          width: auto;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .skills-marquee-group {
+          flex-wrap: wrap;
+          justify-content: center;
+          padding-right: 0;
+        }
+        .skills-marquee-group[aria-hidden="true"] {
+          display: none;
+        }
+      }
+
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -129,49 +194,15 @@
         </div>
       </div>
 
-      <!-- Skills strip -->
+      <!-- Skills marquee strip -->
       <div class="max-w-7xl mx-auto px-6 -mt-8 md:-mt-4 pb-4">
-        <div
-          id="skills-strip"
-          class="flex flex-wrap items-center justify-center gap-4 md:gap-5"
-        >
-          <!-- injected skill icons -->
+        <div class="skills-marquee-wrapper">
+          <div id="skills-strip" class="skills-marquee-track">
+            <!-- injected skill icons -->
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- ============ VIDEO INTRO ============ -->
-    <!-- HIDDEN: Commented out to prevent display
-    <section id="video-intro" class="max-w-5xl mx-auto px-6 py-20 scroll-mt-24 hidden">
-      <h2
-        id="video-heading"
-        class="text-3xl font-extrabold text-navy-dark mb-2"
-      >
-        Introductory Video
-      </h2>
-      <div class="w-16 h-1 bg-navy rounded-full mb-6"></div>
-      <p id="video-description" class="text-slate-600 mb-8 max-w-2xl">
-        <!- - injected - ->
-      </p>
-      <div
-        id="video-embed-wrapper"
-        class="w-full rounded-xl overflow-hidden shadow-lg border border-slate-200 bg-slate-100 mx-auto"
-      >
-        <!- - injected iframe - ->
-      </div>
-      <p class="text-xs text-slate-400 mt-3">
-        Can't see the video?
-        <a
-          id="video-fallback-link"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="underline hover:text-navy"
-          >Watch it directly on YouTube</a
-        >.
-      </p>
-    </section>
-    -->
 
     <!-- ============ EDUCATION ============ -->
     <section id="education" class="max-w-7xl mx-auto px-6 py-20 scroll-mt-24">
@@ -211,8 +242,14 @@
     <section id="projects" class="bg-slate-50 scroll-mt-24">
       <div class="max-w-7xl mx-auto px-6 py-20">
         <h2 class="text-3xl font-extrabold text-navy-dark mb-2">Projects</h2>
-        <div class="w-16 h-1 bg-navy rounded-full mb-10"></div>
-        <div id="projects-list" class="grid md:grid-cols-3 gap-6">
+        <div class="w-16 h-1 bg-navy rounded-full mb-8"></div>
+
+        <!-- Category / Platform Filter Tabs -->
+        <div id="projects-filters" class="flex flex-wrap gap-2 mb-8">
+          <!-- injected -->
+        </div>
+
+        <div id="projects-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- injected -->
         </div>
       </div>

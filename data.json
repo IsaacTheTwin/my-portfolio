@@ -32,22 +32,37 @@
     {
       "name": "Power BI",
       "type": "image",
-      "src": "assets/power BI.png"
+      "src": "assets/New_Power_BI_Logo.svg.webp"
     },
     {
       "name": "Microsoft Fabric",
       "type": "image",
-      "src": "assets/fabric.jpg"
+      "src": "assets/fabricpng.png"
+    },
+    {
+      "name": "Microsoft Azure",
+      "type": "image",
+      "src": "assets/Microsoft_Azure.svg.webp"
+    },
+    {
+      "name": "AWS",
+      "type": "image",
+      "src": "assets/AWSpng.png"
+    },
+    {
+      "name": "Google Cloud platform",
+      "type": "image",
+      "src": "assets/Google_Cloud_icon_(2026).svg.webp"
     },
     {
       "name": "Tableau",
       "type": "image",
-      "src": "assets/Tableau-Logo.png"
+      "src": "assets/tableau-software_thumbpng.png"
     },
     {
       "name": "SQL Server",
       "type": "image",
-      "src": "assets/SSMS.png"
+      "src": "assets/ssms_21webp.webp"
     },
     { "name": "R", "type": "simple-icon", "slug": "r", "color": "276DC3" },
     {
@@ -63,6 +78,26 @@
       "type": "simple-icon",
       "slug": "jupyter",
       "color": "F37626"
+    },
+    {
+      "name": "Kubernetes",
+      "type": "image",
+      "src": "assets/Kubernetes_logo_without_workmark.svg.WEBP"
+    },
+    {
+      "name": "Snowflake",
+      "type": "image",
+      "src": "assets/snowflake-colorpng.png"
+    },
+    {
+      "name": "Apache Spark",
+      "type": "image",
+      "src": "assets/Apache_Spark_logo.svg.WEBP"
+    },
+    {
+      "name": "Databricks",
+      "type": "image",
+      "src": "assets/databrickspng.png"
     }
   ],
   "videoIntro": {
@@ -101,6 +136,14 @@
   ],
   "certifications": [
     {
+    "name": "Associate Data Engineer Career Track",
+    "issuer": "DataCamp",
+    "date": "Novemebr 2026",
+    "platform": "DataCamp",
+    "credentialId": " 960625be407d05394befac51e9ed5a6daa747d4b",
+    "link": "https://www.datacamp.com/completed/statement-of-accomplishment/track/960625be407d05394befac51e9ed5a6daa747d4b"
+    },
+    {
       "name": "Google Business Intelligence Certificate",
       "issuer": "Google (via Coursera)",
       "date": "February 2026",
@@ -115,11 +158,27 @@
       "credlyBadgeId": "fbcbadd3-1db9-49ca-9b48-935300f46707"
     },
     {
+    "name": "Microsoft Azure Fundamentals (AZ-900) Career Track",
+    "issuer": "DataCamp",
+    "date": "March 2025",
+    "platform": "DataCamp",
+    "credentialId": "358faad4082e0607f70ab65e4f95c6b6755f1d58",
+    "link": "https://www.datacamp.com/completed/statement-of-accomplishment/track/358faad4082e0607f70ab65e4f95c6b6755f1d58?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa"
+    },
+    {
       "name": "Databases and SQL for Data Science",
       "issuer": "IBM (via Coursera)",
       "date": "October 2024",
       "link": "https://www.credly.com/badges/1c116183-5f73-4346-9f27-52d22873fb16/public_url",
       "credlyBadgeId": "1c116183-5f73-4346-9f27-52d22873fb16"
+    },
+    {
+    "name": "Data Analyst in Python Career Track",
+    "issuer": "DataCamp",
+    "date": "September 2024",
+    "platform": "DataCamp",
+    "credentialId": "8392f085ce209a4a929318333ca99a76bd66f377",
+    "link": "https://www.datacamp.com/statement-of-accomplishment/track/8392f085ce209a4a929318333ca99a76bd66f377?raw=1"
     },
     {
       "name": "Exploring SAP Analytics Cloud – Record of Achievement",
@@ -159,27 +218,27 @@
   ],
   "projects": [
     {
-      "name": "Action Tracker Database",
+      "name": "Action Tracker Database (Private)",
       "description": "Designed a normalized SQL Server database with one-to-many relationships for tracking deviations, recommendations, and actions across business units.",
       "tags": ["SQL Server", "Stored Procedures", "SSIS"]
     },
     {
-      "name": "Executive Cellphone Administration Dashboard",
+      "name": "Executive Cellphone Administration Dashboard (Private)",
       "description": "Built an executive Power BI/PowerPoint reporting package covering cellphone clearance, invoicing, and deductions, branded to company standards.",
       "tags": ["Power BI", "Excel", "PowerPoint"]
     },
     {
-      "name": "Excel Automation Project",
+      "name": "Excel Automation Project (Private)",
       "description": "Duplicate detection, and data merging to reduce manual reporting effort, Developed Power BI Dashboards.",
       "tags": ["Excel", "VBA", "Automation"]
     },
     {
-      "name": "Data Analytics and Process Optimization Project",
+      "name": "Data Analytics and Process Optimization Project (Private)",
       "description": "Extract data from different sources, Clean the data, Load data into a Lakehouse, create dashboard.",
       "tags": ["SSIS", "PowerShell", "Power BI", "VBA", "Power Automate"]
     },
     {
-      "name": "Logistics Automation Project",
+      "name": "Logistics Automation Project (Private)",
       "description": "Collaborated with internal and external stakeholder to automate logistics process",
       "tags": [
         "SSIS",
@@ -190,7 +249,60 @@
         "PockeBase",
         "Microsoft Intune"
       ]
-    }
+    },
+    {
+    "name": "Action Tracker Database (Private)",
+    "category": "SQL & Automation",
+    "description": "Designed a normalized SQL Server database with one-to-many relationships for tracking deviations, recommendations, and actions across business units.",
+    "tags": ["SQL Server", "Stored Procedures", "SSIS"],
+    "links": []
+  },
+  {
+    "name": "Analyzing Customer Churn",
+    "category": "Power BI",
+    "description": "For subscription-based businesses, reducing customer churn is a top priority. In this Power BI Project, I will investigate a dataset from an example telecom company called Databel and analyze their churn rates. Analyzing churn doesn’t just mean knowing what the churn rate is: it’s also about figuring out why customers are churning at the rate they are, and how to reduce churn. I'll answer these questions by creating measures and calculated columns, while simultaneously creating eye-catching report pages.",
+    "tags": ["Power BI", "Excel", "PowerPoint"],
+    "links": [
+      {
+        "type": "powerbi",
+        "label": "Analyzing Customer Churn",
+        "url": "https://drive.google.com/drive/folders/1pUDqpleCky75RMUaMozq0mKEA6ej9SxM?usp=sharing",
+        "download": true
+      }
+    ]
+  },
+  {
+    "name": "Exploring London Travel Network",
+    "category": "Jupyter Notebook",
+    "description": "Queried the data using SQL to explore the London travel network",
+    "tags": [ "Jupyter", "Databricks", "SQL"],
+    "links": [
+      {
+        "type": "jupyter",
+        "label": "View Notebook",
+        "url": "https://github.com/newtonxify/explore_london_travel_network_in_databricks/blob/main/explore_london_travel_network.ipynb",
+        "embedUrl": "https://nbviewer.org/github/newtonxify/explore_london_travel_network_in_databricks/blob/main/explore_london_travel_network.ipynb"
+      },
+      {
+        "type": "github",
+        "label": "GitHub Repo",
+        "url": ""
+      }
+    ]
+  },
+  {
+    "name": "The impact of weather events in the US",
+    "category": "RPubs",
+    "description": "Interactive R Markdown statistical report published via RStudio analyzing monthly plant throughput.",
+    "tags": ["R", "RStudio", "RPubs", "ggplot2"],
+    "links": [
+      {
+        "type": "rpubs",
+        "label": "View on RPubs",
+        "url": "https://rpubs.com/newtonxify/966068"
+      }
+    ]
+  }
   ],
   "about": {
     "heading": "About Me",
