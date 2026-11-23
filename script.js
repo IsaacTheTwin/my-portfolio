@@ -183,7 +183,6 @@ function renderSkills(skills) {
   const track = document.getElementById("skills-strip");
   if (!track || !Array.isArray(skills) || skills.length === 0) return;
 
-  // Adjust speed proportionally so adding more skills keeps a steady pace
   const durationSeconds = Math.max(22, skills.length * 3.2);
   track.style.setProperty("--marquee-duration", `${durationSeconds}s`);
 
@@ -192,7 +191,7 @@ function renderSkills(skills) {
       const iconSrc =
         s.type === "simple-icon"
           ? `https://cdn.simpleicons.org/${encodeURIComponent(s.slug)}/${encodeURIComponent(s.color || "")}`
-          : s.src;
+          : sanitizeUrl(s.src);
       return `
       <div class="w-20 md:w-24 shrink-0 flex flex-col items-center gap-2" title="${escapeAttr(s.name)}">
         <div class="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white shadow-md border border-slate-100 flex items-center justify-center p-3">
@@ -204,7 +203,6 @@ function renderSkills(skills) {
     })
     .join("");
 
-  // Two identical groups allow a pixel-perfect -50% infinite loop
   track.innerHTML = `
     <div class="skills-marquee-group">${itemsHtml}</div>
     <div class="skills-marquee-group" aria-hidden="true">${itemsHtml}</div>
@@ -291,12 +289,10 @@ function resolveCertProvider(cert) {
 }
 
 function renderCertificationVisual(c) {
-  // 1. Official Credly embed widget
   if (c.credlyBadgeId) {
     return `<div data-iframe-width="120" data-iframe-height="150" data-share-badge-id="${escapeAttr(c.credlyBadgeId)}" data-share-badge-host="https://www.credly.com"></div>`;
   }
 
-  // 2. Custom badge or certificate emblem image (local asset or URL)
   if (c.badgeImage) {
     return `
       <div class="flex flex-col items-center gap-2">
@@ -312,7 +308,6 @@ function renderCertificationVisual(c) {
       </div>`;
   }
 
-  // 3. Platform-branded verification badge (Coursera, Microsoft, Google, Udemy, etc.)
   const provider = resolveCertProvider(c);
   const iconHtml = provider.slug
     ? `<img src="https://cdn.simpleicons.org/${encodeURIComponent(provider.slug)}/${encodeURIComponent(provider.color)}"
@@ -398,9 +393,28 @@ function renderExperience(list) {
     .join("");
 }
 
+function getNormalizedProjectLinks(project) {
+  const links = Array.isArray(project.links)
+    ? [...project.links]
+    : [];
+
+  // Support shorthand "pbixFile": "assets/report.pbix" directly on a project
+  if (project.pbixFile) {
+    links.unshift({
+      type: "powerbi",
+      label: project.pbixLabel || "Download .pbix",
+      url: project.pbixFile,
+      download: true,
+    });
+  }
+
+  return links.filter((l) => l && l.url);
+}
+
 function getProjectCategory(project) {
   if (project.category) return project.category;
-  const firstLinkType = project.links?.[0]?.type?.toLowerCase();
+  const links = getNormalizedProjectLinks(project);
+  const firstLinkType = links[0]?.type?.toLowerCase();
   if (firstLinkType && PLATFORM_META[firstLinkType]) {
     return PLATFORM_META[firstLinkType].label;
   }
@@ -412,6 +426,16 @@ function isDownloadableFile(link) {
   return /\.(pbix|pbit|ipynb|rmd|r|py|sql|xlsx|csv|pdf|zip)$/i.test(
     link.url || "",
   );
+}
+
+function getDownloadFilename(url) {
+  const clean = String(url || "").split("?")[0].split("#")[0];
+  const last = clean.split("/").pop() || "";
+  try {
+    return decodeURIComponent(last);
+  } catch {
+    return last;
+  }
 }
 
 // Resolves a URL to open in a new tab when the user clicks "Preview"
@@ -443,9 +467,7 @@ function getPreviewUrl(link) {
 }
 
 function renderProjectLinks(project) {
-  const links = Array.isArray(project.links)
-    ? project.links.filter((l) => l && l.url)
-    : [];
+  const links = getNormalizedProjectLinks(project);
   if (links.length === 0) return "";
 
   const baseBtnLayout =
@@ -458,12 +480,21 @@ function renderProjectLinks(project) {
       const icon = PROJECT_ICONS[type] || PROJECT_ICONS.default;
       const safeUrl = sanitizeUrl(link.url);
       const isDownload = isDownloadableFile(link);
-      const label = link.label || meta.label;
+      const downloadName = isDownload
+        ? link.filename || getDownloadFilename(link.url)
+        : "";
+      const defaultLabel =
+        isDownload && type === "powerbi" ? "Download .pbix" : meta.label;
+      const label = link.label || defaultLabel;
       const previewUrl = getPreviewUrl(link);
 
       const mainLinkHtml = `
         <a href="${escapeAttr(safeUrl)}"
-           ${isDownload ? "download" : 'target="_blank" rel="noopener noreferrer"'}
+           ${
+             isDownload
+               ? `download="${escapeAttr(downloadName)}"`
+               : 'target="_blank" rel="noopener noreferrer"'
+           }
            class="${baseBtnLayout} ${meta.btnClass}">
           ${icon}
           <span>${escapeHtml(label)}</span>
@@ -612,8 +643,14 @@ function setupScrollSpy(nav) {
 
 function sanitizeUrl(url) {
   const str = String(url || "").trim();
-  if (/^(https?:\/\/|mailto:|\/|\.\/)/i.test(str)) return str;
-  if (/^[a-zA-Z0-9_\-./]+$/.test(str)) return str;
+  if (!str) return "#";
+  if (/^(javascript|data|vbscript):/i.test(str)) return "#";
+  if (/^(https?:\/\/|mailto:|\/|\.\/)/i.test(str)) {
+    return str.replace(/ /g, "%20");
+  }
+  if (/^[a-zA-Z0-9_\-./\s()&]+$/.test(str)) {
+    return str.replace(/ /g, "%20");
+  }
   return "#";
 }
 
