@@ -266,7 +266,7 @@
       {
         "type": "powerbi",
         "label": "Analyzing Customer Churn",
-        "url": "https://drive.google.com/drive/folders/1pUDqpleCky75RMUaMozq0mKEA6ej9SxM?usp=sharing",
+        "url": "assets/Analyzing Customer Churn.pbix",
         "download": true
       }
     ]
